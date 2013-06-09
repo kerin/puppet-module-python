@@ -84,8 +84,8 @@ define python::gunicorn::instance($venv,
   service { "gunicorn-${name}":
     ensure => $is_present,
     enable => $is_present,
-    hasstatus => $is_present,
-    hasrestart => $is_present,
+    hasstatus => false,
+    hasrestart => false,
     subscribe => $ensure ? {
       'present' => File[$initscript],
       default => undef,
